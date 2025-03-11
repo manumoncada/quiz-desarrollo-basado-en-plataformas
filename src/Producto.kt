@@ -5,6 +5,18 @@ data class Producto(
     var precio: Double,
     var cantidadEnStock: Int
     ) {
+
+    fun crearProducto(): Producto {
+        println("Ingresa el código del producto:")
+        val codigo = readLine() ?: ""
+        println("Ingresa el nombre del producto:")
+        val nombre = readLine() ?: ""
+        println("Ingresa el precio del producto:")
+        val precio = readLine()?.toDoubleOrNull() ?: 0.0
+        println("Ingrese la cantidad en stock del producto:")
+        val stock = readLine()?.toIntOrNull() ?: 0
+        return Producto(codigo, nombre, precio,stock)
+    }
     fun vender(cantidad: Int) {
         if (cantidadEnStock >= cantidad) {
             cantidadEnStock -= cantidad
@@ -22,7 +34,7 @@ data class Producto(
     fun aplicarDescuento(porcentaje: Double) {
         println("ingrese el descuento a aplicar")
         val descuento =  readLine()
-        val descuentoaplicado = precio * (descuento / 100)
+        val descuentoaplicado = precio * (descuento/(100))
         precio -= descuentoaplicado
         println("el descuento se ha realizado con exito: $precio")
     }
@@ -46,12 +58,6 @@ data class Producto(
         val totalinventario = cantidadEnStock * precio
         println(" el total de inventario es $totalinventario")
 
-    }
-
-    fun crearProducto(codigo: String, nombre: String, precio: Double, cantidadEnStock: Int) {
-        val producto = Producto(codigo, nombre, precio, cantidadEnStock)
-        productos.add(producto)
-        println("Producto creado: ${producto.nombre}")
     }
 
     fun eliminarProductoPorCodigo(codigo: String) {
