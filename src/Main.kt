@@ -1,7 +1,6 @@
 
 fun main() {
-    val tienda = Tienda()
-    val proceso = Int
+    val Producto = Tienda()
     while (true){
         println("""
             buen dia, ingreses alfunas de las siguentes opciones 
@@ -15,32 +14,31 @@ fun main() {
             8 eliminar producto por codigp
             9 salir
         """.trimIndent())
-         proceso = readlnOrNull()
-        when(proceso){
+        when(readLine()?.toIntOrNull()){
 
             1->{
-              tienda.crearproducto()
+              Producto.crearproducto()
             }
             2->{
-                tienda.productos[0].vender(0)
+                Producto.productos[0].vender(0)
             }
             3->{
-                tienda.productos[0].reponer(0)
+                Producto.productos[0].reponer(0)
             }
             4->{
-                tienda.productos[0].aplicarDescuento(5.0)
+                Producto.productos[0].aplicarDescuento(5.0)
             }
             5->{
-                tienda.mostrarProductos()
+                Producto.mostrarProductos()
             }
             6->{
-                tienda.productos[1].aumentarPrecio(5.0)
+                Producto.productos[1].aumentarPrecio(5.0)
             }
             7->{
-                tienda.run { productos.calcularValorTotalInventario(0) }
+                Producto.run { productos.calcularValorTotalInventario(0) }
             }
             8->{
-                tienda.eliminarProductoPorCodigo("")
+                Producto.eliminarProductoPorCodigo("")
             }
             9->{
                 return
